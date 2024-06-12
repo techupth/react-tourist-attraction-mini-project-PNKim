@@ -51,7 +51,7 @@ function AttractionList() {
                 alt={attraction.title}
                 className="w-80 h-80 border rounded-3xl"
               />
-              <div id="AttractionDetail" className="">
+              <div id="AttractionDetail">
                 <a
                   href={attraction.url}
                   target="_blank"
@@ -86,7 +86,9 @@ function AttractionList() {
                           className="underline"
                           onClick={() => {
                             let newSearch = searchAttraction;
-                            newSearch += " " + tag;
+                            if (!newSearch.includes(tag)) {
+                              newSearch += " " + tag;
+                            }
                             setSearchAttraction(newSearch.trim());
                           }}
                         >

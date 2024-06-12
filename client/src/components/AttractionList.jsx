@@ -1,7 +1,6 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useEffect, useState } from "react";
+import CopyClipboard from "./CopyToClipboard";
 
 function AttractionList() {
   const [attractions, setAttractions] = useState([]);
@@ -71,10 +70,7 @@ function AttractionList() {
                     อ่านต่อ
                   </a>
                 </p>
-                <p
-                  id="Category"
-                  className="flex gap-1 text-gray-400 font-bold "
-                >
+                <p id="Category" className="flex gap-1 text-gray-400 ">
                   หมวดหมู่
                   {attraction.tags.map((tag, index) => {
                     let text = "";
@@ -114,11 +110,7 @@ function AttractionList() {
                   })}
                 </figure>
               </div>
-              <CopyToClipboard text={attraction.url}>
-                <button className="w-14 h-14 border rounded-full bg-blue-400 self-end">
-                  Copy Url
-                </button>
-              </CopyToClipboard>
+              <CopyClipboard url={attraction.url} />
             </div>
           );
         })}
